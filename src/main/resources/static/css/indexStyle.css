@@ -1,0 +1,202 @@
+@font-face {
+    font-family: 'Mabinogi';
+    src: url(../fonts/Mabinogi_Classic_TTF.ttf)format(truetype);
+}
+@font-face {
+    font-family: 'Maplestory';
+    src: url(../fonts/Maplestory\ OTF\ Light.otf)format(opentype);
+}
+
+#body{
+    font-family: 'Mabinogi';
+}
+
+
+
+.top{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+
+
+#header_wrap{
+    text-align: center;
+    font-family: 'Mabinogi';
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+}
+#header{
+    text-align: center;
+    font-size: 70px;
+    width: 1230px;
+    font-family: 'Mabinogi';
+    cursor: pointer;
+}
+#home{
+    text-decoration: none;
+    color:  #ff6600;
+}
+
+.user_menu_wrap{
+    display: flex;
+    justify-content: right;
+    height: 50px;
+}
+.user_menu{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 13px;
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+
+
+.navi{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    width: 1230px;
+    padding-top: 50px;
+}
+#menu_search_bar{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 30px;    
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    width: 360px;    
+}
+.navi_box{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: #ff6600;
+    font-weight: bold;
+    cursor: pointer;
+}
+#searchArea{
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+}
+#searchCat{
+    font-family: 'Mabinogi';
+}
+#searchBox{
+    width: 200x;
+    height: 30px;
+}
+#submit{
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+}
+
+
+.slide_wrap { 
+    position: relative; 
+    width: 400px; 
+    margin: auto; 
+    padding-bottom: 30px; 
+}
+.slide_box { 
+    width: 100%; 
+    margin: auto; 
+    overflow-x: hidden; 
+}
+.slide_content { 
+    display: table; 
+    float: left; 
+    width: 400px; 
+    height: 400px; 
+}
+.movieTopic{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size : 30px;
+}
+.posters{
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 1200PX;
+}
+.poster{
+    width: 280px;
+    height: 340px;
+    border:  1px solid;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+.posters_info{
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    width: 1200PX;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.nameScore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    width: 280px;
+    height: 100px;
+}
+.post{
+    display: flex;
+    justify-content: space-around;
+    width: 1230px; 
+    height: 530px;
+    border: 1px solid;
+}
+.postTopic{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size : 30px;
+}
+
+.popPosts{
+    width: 580px;
+    height: 420px;
+    border: 1px solid;
+}
+.popPost{
+    font-size : 20px;
+}
+
+.recPosts{
+    width: 580px;
+    height: 420px;
+    border: 1px solid;
+}
+.recPost{
+    font-size : 20px;
+}
+
+
+
+#footer{
+    padding-top: 90px;
+    text-align: center;
+}

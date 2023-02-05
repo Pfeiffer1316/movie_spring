@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/signUpStyle.css">
+    <title>SIGN UP🎫</title>
+</head>
+<body id="body">
+    <div class="top"> <!--로고-->
+
+		<div id="header">
+			<a id="home" href="index.html">Recommending Movie</a>
+        </div>
+	</div>
+    <div class="main">
+        <div class="data" id="id">
+            <span>아이디 / ID</span>
+            <div class="ip_box">
+                <input class="inputs" type="text" placeholder="영문/숫자 6자리 이상">
+            </div>
+        </div>
+        <div class="data" id="pw">
+            <span>비밀번호 / PW</span>
+            <div class="ip_box">
+                <input class="inputs" type="password" name="pwd1" id="pwd1" placeholder="영문/숫자/특수문자 조합 8자리 이상" >
+                <img src="icons/eye-regular.svg" id="btnEye1" alt="" width="20px" height="20px">
+            </div>
+            <div class="ip_box" id="ip_pw2">
+                <input class="inputs" type="password" name="pwd2" id="pwd2" placeholder="비밀번호 재입력">
+                <img src="icons/eye-regular.svg" id="btnEye2" alt="" width="20px" height="20px">
+            </div>    
+        </div>
+        <div class="data" id="nickname">
+            <span>사용자 이름 / Nickname</span>
+            <div class="ip_box">
+                <input class="inputs" type="text">
+            </div>    
+        </div>
+        <div class="data" id="email">
+            <span>이메일 / e-mail</span>
+            <div class="ip_box">
+                <input class="inputs" type="email">
+            </div>
+        </div>
+        <div class="data" id="recommender">
+            <span>추천인 / Recommender</span>
+            <div class="ip_box">
+                <input class="inputs" type="text">
+            </div>
+        </div>
+        <div id="terms">
+            <span id="termsStyle">이용약관 / terms</span>
+            <div class="checkbox_group">
+                <div id="termsStyle">
+                    <input type="checkbox" name="" id="check_all">
+                    <label for="check_all">약관 전체 동의하기 </label>
+                </div>
+                <div>
+                    <input type="checkbox" class="normal" id="check_1"> 
+                    <label for="check_1">[필수] 개인정보 수집 및 이용 동의 </label>
+                </div>
+                <div>
+                    <input type="checkbox" class="normal" id="check_2"> 
+                    <label for="check_2">[필수] MOVIEMOVIE 이용 약관 </label>
+                </div>
+                <div>
+                    <input type="checkbox" class="normal" id="check_3"> 
+                    <label for="check_3">[선택] 마케팅 활용 및 광고성 정보 수신 동의 </label>
+                </div>
+            </div>
+            
+        </div>        
+        <button id="signUp_bt" type="submit">가 입 하 기</button>       
+    </div>
+
+    <footer id="footer">
+		© 2022-2023 Soda flavor Mandu +82
+	</footer>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/signUp.js"></script>
+
+</body>
+</html>

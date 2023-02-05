@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/indexStyle.css">
+	<title>Movie Movie📽</title>
+	<style>
+		html, body { box-sizing: border-box; padding: 0; margin: 0; text-align: center; }
+		*, *:before, *:after { box-sizing: inherit; }
+		.clearfix:after { content: ''; display: block; clear: both; float: none; }
+		.title { margin-bottom: 0; text-align: center; font-size: 30px; color: #333; }
+		.link, .link:visited { display: inline-block; margin: 20px 0; color: #555; text-decoration: none; font-weight: bold; }
+		.link:hover, .link:focus { color: #9fd6c2; }
+		/* container - body */
+		#container { width: 1400px; margin: auto; margin-top: 30PX;}
+		.slide_wrap { position: relative; width: 1230px; margin: auto; padding-bottom: 30px; }
+		.slide_box { width: 100%; margin: auto; overflow-x: hidden; }
+		.slide_content { display: table; float: left; width: 1230px; height: 530px; }
+		.slide_content > p { display: table-cell; vertical-align: middle; text-align: center; font-size: 100px; font-weight: bold; color: #555; }
+		.slide_content.slide01 { background: #000000; }
+		.slide01_video {display: flex; align-items: center; margin-left: 15px; position: absolute;}
+		#gradient1 {position: absolute; width: 200px; height: 530px; margin-left: 15px;  background-image: linear-gradient(to left,  rgba(255,0,0,0), rgba(0,0,0,1));}
+		#gradient2 {position: absolute; width: 200px; height: 530px; margin-left: 757px; background-image: linear-gradient(to right,  rgba(255,0,0,0), rgba(0,0,0,1));}
+		#gradient3 {position: absolute; width: 1230px; height: 530px; background-image: linear-gradient(to right,  rgba(255,0,0,0), rgba(0,0,0,0));}
+		.video_info1 {position: relative; top: 300px; left: 520px; color: #f5ccb5; font-size: 60px;}
+		.video_info2 {position: relative; top: 350px; left: 300px; color: #f5ccb5; font-size: 40px;}
+		#btn-play1 {position: absolute; margin-left: 210px; margin-top: 420px; text-decoration: none; color: #ffffff;}
+		/*#btn-play2 {position: absolute; margin-left: 200px; margin-top: 420px; text-decoration: none; color: #ffffff;} 일시정지버튼*/
+		#btn-play3 {position: absolute; margin-left: 260px; margin-top: 420px; text-decoration: none; color: #ffffff;}
+		.slide_content.slide02 { background: #f5ccb5; }
+		.slide_content.slide03 { background: #f5ccb5; }
+		.slide_content.slide04 { background: #f5ccb5; }
+		.slide_content.slide05 { background: #f5ccb5; }
+		.slide_btn_box > button { position: absolute; top: 50%; margin-top: -45px; width: 60px; height: 60px; font-size: 15Px; color: #555; background: none; border: 1px solid ; cursor: pointer; border-radius: 50%; }
+		.slide_btn_box > .slide_btn_prev { left: -100px; }
+		.slide_btn_box > .slide_btn_next { right: -100px; }
+		.slide_pagination { position: absolute; left: 50%; bottom: 0; list-style: none; margin: 0; padding: 0; transform: translateX(-50%); }
+		.slide_pagination .dot { display: inline-block; width: 15px; height: 15px; margin: 0 5px; overflow: hidden; background: #ddd; border-radius: 50%; transition: 0.3s; }
+		.slide_pagination .dot.dot_active { background: #ff6600; }
+		.slide_pagination .dot a { display: block; width: 100%; height: 100%; }
+	  </style>
+</head>
+<body id="body"> <!--상단부-->
+
+	<div class="top"> <!--로고-->
+
+		<div id="header_wrap">
+			<div id="header">
+				<a id="home" href="index.html">Recommending Movie</a>
+			</div>
+			<div class="user_menu_wrap">
+				<div class="ad">
+					<img src="" alt="">
+				</div>
+				<a class="user_menu" href="login.html">
+					<img src="icons/arrow-right-to-bracket-solid.svg" alt="" width="25px" height="25px">
+					<span>로 그 인</span>
+				</a>
+				<a class="user_menu" href="signUp.html">
+					<img src="icons/user-plus-solid.svg" alt="" width="25px" height="25px">
+					<span>회원가입</span>
+				</a>
+				<a class="user_menu">
+					<img src="icons/user-gear-solid.svg" alt="" width="25px" height="25px">
+					<span>마이페이지</span>
+				</a>
+				<a class="user_menu">
+					<img src="icons/question-solid.svg" alt="" width="25px" height="25px">
+					<span>고객센터</span>
+				</a>
+			</div>	
+		</div>
+	</div>
+	<div class="navi">
+		<div id="menu_search_bar">
+			<div class="menu">
+				<div class="navi_box">MOVIE DB</div>
+				<div class="navi_box">ACTOR DB</div>
+				<div class="navi_box">COMMUNITY</div>
+			</div>
+			<div id="searchArea"> <!--검색 div-->
+				<select name="Category" id="searchCat">
+					<option value="none">==SELECT==</option>
+					<option value="*">All</option>
+					<option value="movieNm">Title</option>
+					<option value="Actors">Actor</option>
+				</select>
+				<input id="searchBox",type="search">
+				<a id="submit">검색</a>
+			</div>
+		</div>
+	</div>
+
+		
+<div id="container">
+	<div class="slide_wrap">
+	  <div class="slide_box">
+		<div class="slide_list clearfix">
+			<!--메인 슬라이드-->
+			<div class="slide_content slide01">
+				<div class="slide01_video">
+					<iframe width="942" height="530"  id="video-player" src="https://www.youtube.com/embed/UigvImy-GbE?loop=1&autoplay=1&controls=0&showinfo=0&enablejsapi=1&mute=1&playlist=UigvImy-GbE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div id="gradient1"></div>
+				<div id="gradient2"></div>
+				<div id="gradient3"></div>
+				<!--영화제목(부제)-->
+				<span class="video_info1">오펜하이머</span>
+				<span class="video_info2">Oppenheimer</span>
+				<a id="btn-play1" href="javascript:void callPlayer(&quot;video-player&quot;,&quot;playVideo&quot;)">Start</a>
+				<!--<a id="btn-play2" href="javascript:void callPlayer(&quot;video-player&quot;,&quot;pauseVideo&quot;)">Pause</a> 일시정지버튼-->
+				<a id="btn-play3" href="javascript:void callPlayer(&quot;video-player&quot;,&quot;stopVideo&quot;)">Stop</a>
+			</div>
+		    <div class="slide_content slide02">
+				<div class="movieTop1">
+					<div class="movieTopic">Popular Movie</div>
+					<div class="posters">
+						<a class="poster">인기순위 1</a>
+						<a class="poster">인기순위 2</a>
+						<a class="poster">인기순위 3</a>
+						<a class="poster">인기순위 4</a>
+					</div>
+					<div class="posters_info">
+						<a class="nameScore">1</a>
+						<a class="nameScore">2</a>
+						<a class="nameScore">3</a>
+						<a class="nameScore">4</a>
+					</div>
+				</div>	
+		    </div>
+		    <div class="slide_content slide03">
+				<div class="movieBot1">
+					<div class="movieTopic">Recent Movie</div>
+					<div class="posters">
+						<a class="poster">최신영화 1</a>
+						<a class="poster">최신영화 2</a>
+						<a class="poster">최신영화 3</a>
+						<a class="poster">최신영화 4</a>
+					</div>
+					<div class="posters_info">
+						<a class="nameScore">1</a>
+						<a class="nameScore">2</a>
+						<a class="nameScore">3</a>
+						<a class="nameScore">4</a>
+					</div>
+				</div>
+		    </div>
+			
+		    <div class="slide_content slide04">
+				<div class="post">
+					<div class="post_left">
+						<div class="postTopic">Popular Post</div>
+						<div class="popPosts">
+							<a class="popPost">1</a>
+						</div>
+					</div>
+					<div class="post_right">
+						<div class="postTopic">Recent Post</div>
+						<div class="recPosts">
+							<a class="recPost">1</a>
+						</div>
+					</div>
+				</div>
+		    </div>
+		    <div class="slide_content slide05">
+				<p>5</p>
+		    </div>
+		</div>
+		<!-- // .slide_list -->
+	  </div>
+	  <!-- // .slide_box -->
+	  <div class="slide_btn_box">
+		<button type="button" class="slide_btn_prev">◀</button>
+		<button type="button" class="slide_btn_next">▶</button>
+	  </div>
+	  <!-- // .slide_btn_box -->
+	  <ul class="slide_pagination"></ul>
+	  <!-- // .slide_pagination -->
+	</div>
+	<!-- // .slide_wrap -->
+  </div>
+  <!-- // .container -->
+	<footer id="footer">
+		© 2022-2023 Soda flavor Mandu +82
+	</footer>
+	<script src="js/index.js"></script>
+</body>
+</html>
