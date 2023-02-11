@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/loginStyle.css">
+    <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <title>LOGIN 🗝</title>
+</head>
+<body id="body">
+    <div class="top"> <!--로고-->
+
+		<div id="header">
+			<a id="home" href="index.html">Recommending Movie</a>
+    </div>
+	  </div>
+    <div class="main">
+        <div class="data" id="id">
+            <div class="ip_box">
+              <input class="inputs" type="text" placeholder="ID">
+            </div>
+        </div>
+        <div class="data" id="pw">
+            <div class="ip_box">
+              <input class="inputs" type="password" name="pwd" id="pwd" placeholder="PASSWORD" >
+              <img src="icons/eye-regular.svg" id="btnEye" alt="" width="20px" height="20px">
+            </div>  
+        </div>
+
+        <div id="logIn_bt">
+          <a>로 그 인</a>
+        </div>
+
+        <div id="auto">
+            <div id="auto_logIn">
+              <input id="auto_chk" type="checkbox">
+              <label for="auto_chk">자동로그인 </label>
+            </div>
+            <div id="find_ap">
+              <a>아이디/비밀번호찾기</a> 
+            </div>
+        </div>
+
+        <!--카카오 로그인 여기부터-->
+        <div>
+            <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"
+            integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+          <script>
+              Kakao.init('d5612509fd3cfb0799ea8aa940d49547'); // 사용하려는 앱의 JavaScript 키 입력
+          </script>
+
+          <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+            <img src="img/kakao_login_medium_wide.png" 
+              alt="카카오 로그인 버튼" />
+          </a>
+          <p id="token-result"></p>
+
+          <script>
+            function loginWithKakao() {
+              Kakao.Auth.authorize({
+                redirectUri: 'https://developers.kakao.com/tool/demo/oauth',
+              });
+            }
+        
+            // 아래는 데모를 위한 UI 코드입니다.
+            displayToken()
+            function displayToken() {
+              var token = getCookie('authorize-access-token');
+            
+              if(token) {
+                Kakao.Auth.setAccessToken(token);
+                Kakao.Auth.getStatusInfo()
+                  .then(function(res) {
+                    if (res.status === 'connected') {
+                      document.getElementById('token-result').innerText
+                        = 'login success, token: ' + Kakao.Auth.getAccessToken();
+                    }
+                  })
+                  .catch(function(err) {
+                    Kakao.Auth.setAccessToken(null);
+                  });
+              }
+            }
+        
+            function getCookie(name) {
+              var parts = document.cookie.split(name + '=');
+              if (parts.length === 2) { return parts[1].split(';')[0]; }
+            }
+          </script>
+        </div>
+        <!--카카오 로그인 여기까지-->
+        <div id="signUp">
+          <div>계정이 없으시다면....(づ￣ 3￣)づ</div>
+          <a id="signUp_link" href="signUp.html">회원가입</a>  
+        </div>
+    </div>
+
+    <footer id="footer">
+		    © 2022-2023 Soda flavor Mandu +82
+	  </footer>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
