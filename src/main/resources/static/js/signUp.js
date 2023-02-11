@@ -1,14 +1,16 @@
+// 비밀번호 가림 옵션
+
 $(function(){
 
     $("#btnEye1").on("click",function(){
         $("#pwd1").toggleClass('active');
         if($("#pwd1").hasClass('active')){
             $('#pwd1').prop('type',"text");
-            $('#btnEye1').prop('src',"../static/icons/eye-slash-regular.svg");
+            $('#btnEye1').prop('src',"icons/eye-slash-regular.svg");
         }
         else{
             $('#pwd1').prop('type',"password");
-            $('#btnEye1').prop('src',"../static/icons/eye-regular.svg");
+            $('#btnEye1').prop('src',"icons/eye-regular.svg");
         }
     });
 });
@@ -19,11 +21,11 @@ $(function(){
         $("#pwd2").toggleClass('active');
         if($("#pwd2").hasClass('active')){
             $('#pwd2').prop('type',"text");
-            $('#btnEye2').prop('src',"../static/icons/eye-slash-regular.svg");
+            $('#btnEye2').prop('src',"icons/eye-slash-regular.svg");
         }
         else{
             $('#pwd2').prop('type',"password");
-            $('#btnEye2').prop('src',"../static/icons/eye-regular.svg");
+            $('#btnEye2').prop('src',"icons/eye-regular.svg");
         }
     });
 });
@@ -75,3 +77,46 @@ function check_data(){
         alert("아이디는 영문 대/소문자와 숫자로 입력해야합니다.")
     }
 }
+
+// 이메일 인증번호
+$checkEmail.click(function() {
+    $.ajax({
+       type : "POST",
+       url : "login/mailConfirm",
+       data : {
+          "email" : $memail.val()
+       },
+       success : function(data){
+          alert("인증 코드가 발송되었습니다.")
+          console.log("data : "+data);
+          chkEmailConfirm(data, $memailconfirm, $memailconfirmTxt);
+       }
+    })
+ })
+ 
+     // 이메일 인증번호 체크 함수
+     function chkEmailConfirm(data, $memailconfirm, $memailconfirmTxt){
+         $memailconfirm.on("keyup", function(){
+             if (data != $memailconfirm.val()) { //
+                 emconfirmchk = false;
+                 $memailconfirmTxt.html("<span id='emconfirmchk'>인증 코드가 맞지 않습니다.</span>")
+                 $("#emconfirmchk").css({
+                     "color" : "#FA3E3E",
+                     "font-weight" : "bold",
+                     "font-size" : "10px"
+ 
+                 })
+                 //console.log("중복아이디");
+             } else { // 아니면 중복아님
+                 emconfirmchk = true;
+                 $memailconfirmTxt.html("<span id='emconfirmchk'>인증 완료</span>")
+ 
+                 $("#emconfirmchk").css({
+                     "color" : "#0D6EFD",
+                     "font-weight" : "bold",
+                     "font-size" : "10px"
+ 
+                 })
+             }
+         })
+     }
