@@ -72,7 +72,7 @@
             </div>
             
         </div>        
-        <div id="signUp_bt" onclick="">이 메 일 인 증</div>       
+        <div id="signUp_bt" onclick="register()">회 원 가 입</div>       
         
     </div>
 
@@ -81,6 +81,25 @@
 	</footer>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/signUp.js"></script>
+    <script>
+        function register(){
+            //input 가져오기
+            const id = document.getElementById("id").value;
+            const pw = document.getElementById("pw").value;
+            const nickname = document.getElementById("nickname").value;
+            const email = document.getElementById("email").value;
+            const recommender = document.getElementById("recommender").value;
+        
+            console.log("id",id);
+            console.log("pw",pw);
+            console.log("nickname",nickname);
+            console.log("email",email);
+            console.log("recommender",recommender);
+        
+            //Redirect
+            window.location.href = "signUpTest.html" + "?id=" + id + "?pw=" + pw + "?nickname=" + nickname + "?email=" + email + "?recommender=" + recommender;
+        }
+    </script>
 
 </body>
 </html>

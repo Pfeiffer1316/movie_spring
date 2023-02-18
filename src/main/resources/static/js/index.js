@@ -124,3 +124,37 @@ function callPlayer(frame_id, func, args) {
       }), "*");
   }
 }
+
+// Chat GPT API 
+
+const apiKey = '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';
+const apiUrl = 'https://api.openai.com/v1/engines/davinci/search';
+
+function search() {
+  const query = document.getElementById('searchBox').value;
+  const data = {
+    "documents": ["List of documents to search"],
+    "query": query,
+    "max_rerank": 10
+  };
+
+  fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Display the search results
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '';
+    data.data.forEach(result => {
+      const resultDiv = document.createElement('div');
+      resultDiv.innerHTML = `<h2>${result.document}</h2><p>${result.text}</p>`;
+      resultsDiv.appendChild(resultDiv);
+    });
+  });
+}

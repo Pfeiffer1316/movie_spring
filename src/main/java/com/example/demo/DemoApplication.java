@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -30,6 +31,24 @@ public class DemoApplication {
 
 		public String signUp() {
 			return "signUp";
+		}
+
+		public String requestParam(
+		@RequestParam(required = false, value = "id") String id, 
+		@RequestParam(required = false, value = "pw") String pw, 
+		@RequestParam(required = false, value = "nickname") String nickname,
+		@RequestParam(required = false, value = "email") String email,
+		@RequestParam(required = false, value = "recommender") String recommender){
+
+		
+			return "signUp";
+		}
+
+		@GetMapping(value = "/signUpTest.html")
+
+		public String signUpTest() {
+
+			return "signUpTest";
 		}
 	}
 
