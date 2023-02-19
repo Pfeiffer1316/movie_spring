@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Mabinogi';
+    src: url(../fonts/Mabinogi_Classic_TTF.ttf)format(truetype);
+}
+#body{
+    font-family: "Mabinogi";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 300px;
+}
+#center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#backHome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 42px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: #fff;
+    background-color: #ff6600;
+    border-radius: 5px;
+    font-size: 17px;
+    text-decoration: none;
+}
