@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'Mabinogi';
+    src: url(../fonts/Mabinogi_Classic_TTF.ttf)format(truetype);
+}
+@font-face {
+    font-family: 'Maplestory';
+    src: url(../fonts/Maplestory\ OTF\ Light.otf)format(opentype);
+}
+
+#body{
+    font-family: 'Mabinogi';
+}
+
+
+
+.top{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom:  50px;
+}
+
+#header{
+    text-align: center;
+    font-size: 40px;
+    width: 1230px;
+    font-family: 'Mabinogi';
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+#home{
+    text-decoration: none;
+    color:  #ff6600;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.data{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+.inputs{
+    width: 300px;
+    height: 40px;
+    border: none;
+    outline: none;
+}
+.ip_box{
+    border: 1px solid black;
+    margin-top: 10px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+#pwd{
+    width: 265px;
+}
+#pw{
+    display: flex;
+    justify-content: center;
+}
+#logIn_bt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 42px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    color: #fff;
+    background-color: #ff6600;
+    border-radius: 5px;
+    font-size: 17px;
+}
+#auto{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+#auto_logIn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#find_ap{
+    display: flex;
+    color: #777777;
+}
+#signUp{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    
+}
+#signUp_link{
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 8px;
+    text-decoration: none;
+    color:  #ff6600;
+    margin-left: 10px;
+}
+
+#footer{
+    padding-top: 90px;
+    text-align: center;
+}
+
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 완료</title>
+</head>
+<body>
+    <h1>Registration Confirmation</h1>
+    <p>Thank you for registering, <span id="name">{id}</span>!</p>
+    <p>Your email is <span id="email"></span>.</p>
+    <p>Your recommender is <span id="recommender"></span>.</p>
+    
+<script>
+    //URL query
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
+    const email = urlParams.get("email");
+    const recommender = urlParams.get("recommender");
+
+    //Update input values
+    document.getElementById("id").textContent=id;
+    document.getElementById("email").textContent=email;
+    document.getElementById("recommender").textContent=recommender;
+
+</script>
+</body>
+</html>
