@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -33,22 +34,24 @@ public class DemoApplication {
 			return "signUp";
 		}
 
-		public String requestParam(
-		@RequestParam(required = false, value = "id") String id, 
-		@RequestParam(required = false, value = "pw") String pw, 
-		@RequestParam(required = false, value = "nickname") String nickname,
-		@RequestParam(required = false, value = "email") String email,
-		@RequestParam(required = false, value = "recommender") String recommender){
-
-		
-			return "signUp";
-		}
-
 		@GetMapping(value = "/signUpTest.html")
 
-		public String signUpTest() {
+		public String signUpTest(@RequestParam(required = false, value = "id") String id,
+		@RequestParam(required = false, value = "pw") String pw,
+		@RequestParam(required = false, value = "nickname") String nickname,
+		@RequestParam(required = false, value = "email") String email,
+		@RequestParam(required = false, value = "recommender") String recommender, Model model) {
 
-			return "signUpTest";
+
+			model.addAttribute("id", id);
+			model.addAttribute("pw", pw);
+			model.addAttribute("nickname", nickname);
+			model.addAttribute("email", email);
+			model.addAttribute("recommender", recommender);
+
+			return "redirect:/signUpTest.html?id=" + id + "&pw=" + pw + "&nickname=" + nickname + "&email=" + email
+					+ "&recommender=" + recommender;
+
 		}
 	}
 

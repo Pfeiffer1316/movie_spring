@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/signUpTest.css">
     <title>회원가입 완료</title>
 </head>
-<body>
-    <h1>Registration Confirmation</h1>
-    <p>Thank you for registering, <span id="name">{id}</span>!</p>
-    <p>Your email is <span id="email"></span>.</p>
-    <p>Your recommender is <span id="recommender"></span>.</p>
+<body id="body">
+    <div id="center">
+        <h1>회원가입이 완료되었습니다!</h1>
+        <p>이용해주셔서 감사합니다,  님!<span id="name" th:text="${id}"></span>${id}</p>
+        <p>당신의 닉네임은  이고, <span id="email" th:text="${email}"></span></p>
+        <p>당신의 이메일은  입니다. <span id="recommender" th:text="${recommender}"></span></p>
+    </div>
     
+    <a id="backHome" href="index.html">
+        메 인 페 이 지
+    </a>
+
 <script>
     //URL query
     const urlParams = new URLSearchParams(window.location.search);
