@@ -34,12 +34,14 @@ public class DemoApplication {
 			return "signUp";
 		}
 
-		public String requestParam(
-				@RequestParam(required = false, value = "id") String id,
-				@RequestParam(required = false, value = "pw") String pw,
-				@RequestParam(required = false, value = "nickname") String nickname,
-				@RequestParam(required = false, value = "email") String email,
-				@RequestParam(required = false, value = "recommender") String recommender, Model model) {
+		@GetMapping(value = "/signUpTest.html")
+
+		public String signUpTest(@RequestParam(required = false, value = "id") String id,
+		@RequestParam(required = false, value = "pw") String pw,
+		@RequestParam(required = false, value = "nickname") String nickname,
+		@RequestParam(required = false, value = "email") String email,
+		@RequestParam(required = false, value = "recommender") String recommender, Model model) {
+
 
 			model.addAttribute("id", id);
 			model.addAttribute("pw", pw);
@@ -49,13 +51,7 @@ public class DemoApplication {
 
 			return "redirect:/signUpTest.html?id=" + id + "&pw=" + pw + "&nickname=" + nickname + "&email=" + email
 					+ "&recommender=" + recommender;
-		}
 
-		@GetMapping(value = "/signUpTest.html")
-
-		public String signUpTest() {
-
-			return "signUpTest";
 		}
 	}
 
