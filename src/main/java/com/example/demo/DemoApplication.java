@@ -36,7 +36,8 @@ public class DemoApplication {
 
 		@GetMapping(value = "/signUpTest.html")
 
-		public String signUpTest(@RequestParam(required = false, value = "id") String id,
+		public String signUpTest(
+		@RequestParam(required = false, value = "id") String id,
 		@RequestParam(required = false, value = "pw") String pw,
 		@RequestParam(required = false, value = "nickname") String nickname,
 		@RequestParam(required = false, value = "email") String email,
@@ -49,7 +50,7 @@ public class DemoApplication {
 			model.addAttribute("email", email);
 			model.addAttribute("recommender", recommender);
 
-			return "redirect:/signUpTest.html?id=" + id + "&pw=" + pw + "&nickname=" + nickname + "&email=" + email
+			return "/signUpTest.html?id=" + id + "&pw=" + pw + "&nickname=" + nickname + "&email=" + email
 					+ "&recommender=" + recommender;
 
 		}
