@@ -1,2 +1,1 @@
-# movie_spring
-# clvmvelnglemrfcb
+영화 추천 및 정보공유 사이트(연습) 입니다.
